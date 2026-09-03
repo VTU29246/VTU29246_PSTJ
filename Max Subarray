@@ -1,0 +1,31 @@
+public static List<Integer> maxSubarray(List<Integer> arr) {
+
+    int current = arr.get(0);
+    int maxSub = arr.get(0);
+
+    int maxNonCont = arr.get(0);
+
+    for (int i = 1; i < arr.size(); i++) {
+
+        int value = arr.get(i);
+
+        current = Math.max(value, current + value);
+        maxSub = Math.max(maxSub, current);
+
+        if (value > 0) {
+            maxNonCont += value;
+        }
+    }
+
+    // If all numbers are negative
+    if (maxNonCont == arr.get(0)) {
+
+        maxNonCont = arr.get(0);
+
+        for (int value : arr) {
+            maxNonCont = Math.max(maxNonCont, value);
+        }
+    }
+
+    return Arrays.asList(maxSub, maxNonCont);
+}
