@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class Solution {
+
+    public static void func(ArrayList mylist) {
+
+        Iterator it = mylist.iterator();
+
+        // Move iterator until we reach "###"
+        while (it.hasNext()) {
+            if (it.next().equals("###")) {
+                break;
+            }
+        }
+
+        // Print everything after "###"
+        while (it.hasNext()) {
+            Object element = it.next();
+            System.out.println((String) element);
+        }
+    }
+}
