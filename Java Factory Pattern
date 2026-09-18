@@ -1,0 +1,45 @@
+interface Food {
+    String serve();
+}
+
+class Pizza implements Food {
+
+    @Override
+    public String serve() {
+        return "Someone ordered a Fast Food!";
+    }
+}
+
+class Cake implements Food {
+
+    @Override
+    public String serve() {
+        return "Someone ordered a Dessert!";
+    }
+}
+
+class FoodFactory {
+
+    public Food getFood(String order) {
+
+        if (order.equalsIgnoreCase("pizza")) {
+            return new Pizza();
+        }
+
+        if (order.equalsIgnoreCase("cake")) {
+            return new Cake();
+        }
+
+        return null;
+    }
+}
+:::
+
+### How it works
+
+The interface defines:
+
+```java id="ztrqj3"
+interface Food {
+    String serve();
+}
